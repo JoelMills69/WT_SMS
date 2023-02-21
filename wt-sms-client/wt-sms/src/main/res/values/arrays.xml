@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ VoIP.ms SMS
+  ~ Copyright (C) 2015-2018 Michael Kourlas
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string-array name="preferences_sync_interval_entries">
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 12 hours</item>
+        <item>Every day</item>
+        <item>Every 3 days</item>
+        <item>Every 7 days</item>
+        <item>Every 30 days</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="preferences_sync_interval_values">
+        <item>0.01041666666</item>
+        <item>0.02083333333</item>
+        <item>0.04166666666</item>
+        <item>0.5</item>
+        <item>1</item>
+        <item>3</item>
+        <item>7</item>
+        <item>30</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="preferences_theme_entries">
+        <item>System default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <!-- When changing the values of these constants, make sure to update
+         AppearancePreferencesFragment.kt -->
+    <string-array name="preferences_theme_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

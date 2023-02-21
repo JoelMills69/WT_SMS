@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ VoIP.ms SMS
+  ~ Copyright (C) 2015-2021 Michael Kourlas
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <!-- PREFERENCES -->
+
+    <!-- Account -->
+    <string name="preferences_account_category_name">Account</string>
+    <string name="preferences_account_email_key" translatable="false">api_email</string>
+    <string name="preferences_account_password_key" translatable="false">api_password</string>
+    <string name="preferences_account_sign_out_key" translatable="false">sign_out</string>
+
+    <!-- Phone numbers -->
+    <string name="preferences_dids_category_name">Phone numbers</string>
+    <string name="preferences_dids_did_key" translatable="false">did</string>
+    <string name="preferences_dids_active_did_key" translatable="false">active_did</string>
+    <string name="preferences_dids_key" translatable="false">dids</string>
+    <string name="preferences_dids_error_network">Retrieval failed: network unavailable</string>
+    <string name="preferences_dids_error_api_request">Retrieval failed: VoIP.ms unavailable</string>
+    <string name="preferences_dids_error_api_parse">Retrieval failed: corrupt response</string>
+    <string name="preferences_dids_error_api_error_invalid_credentials">Retrieval failed: invalid credentials</string>
+    <string name="preferences_dids_error_api_error">Retrieval failed: API error \'%1$s\'</string>
+    <string name="preferences_dids_error_unknown">Retrieval failed: unknown error</string>
+    <string name="preferences_dids_fragment_retrieved_dids_key">voipms_dids</string>
+    <string name="preferences_dids_stored_locally">Stored locally but not found in VoIP.ms account</string>
+    <string name="preferences_dids_fragment_database_dids_key">database_dids</string>
+    <string name="preferences_did_did" translatable="false">did</string>
+    <string name="preferences_did_show_in_conversations_view_key" translatable="false">preferences_did_%1$s_show_in_conversations_view</string>
+    <string name="preferences_did_show_in_conversations_view_title">Show in conversations view</string>
+    <string name="preferences_did_retrieve_messages_key" translatable="false">preferences_did_%1$s_retrieve_messages</string>
+    <string name="preferences_did_retrieve_messages_title">Retrieve messages</string>
+    <string name="preferences_did_show_notifications_key" translatable="false">preferences_did_%1$s_show_notifications</string>
+    <string name="preferences_did_show_notifications_title">Show notifications</string>
+    <string name="preferences_did_fragment_argument_did">did</string>
+
+    <!-- Synchronization -->
+    <string name="preferences_sync_category_name">Synchronization</string>
+    <string name="preferences_sync_interval_key" translatable="false">sync_interval</string>
+    <string name="preferences_sync_interval_title">Synchronization interval</string>
+    <string name="preferences_sync_interval_default_value" translatable="false">0</string>
+    <string name="preferences_sync_start_date_key" translatable="false">start_date</string>
+    <string name="preferences_sync_start_date_title">Synchronization start date</string>
+    <string name="preferences_sync_retrieve_only_recent_messages_key" translatable="false">sync_retrieve_only_recent_messages</string>
+    <string name="preferences_sync_retrieve_only_recent_messages_title">Retrieve only recent messages</string>
+    <string name="preferences_sync_retrieve_only_recent_messages_summary">Retrieve only messages from VoIP.ms dated after the date of the most recent message stored locally</string>
+    <string name="preferences_sync_retrieve_only_recent_messages_default_value" translatable="false">false</string>
+    <string name="preferences_sync_retrieve_deleted_messages_key" translatable="false">sync_retrieve_deleted_messages</string>
+    <string name="preferences_sync_retrieve_deleted_messages_title">Retrieve deleted messages</string>
+    <string name="preferences_sync_retrieve_deleted_messages_summary">Retrieve messages from VoIP.ms that were deleted locally</string>
+    <string name="preferences_sync_retrieve_deleted_messages_default_value" translatable="false">false</string>
+
+    <!-- Notifications -->
+    <string name="preferences_notifications_category_name">Notifications</string>
+    <string name="preferences_notifications_enable_key" translatable="false">sms_notification_basic</string>
+    <string name="preferences_notifications_enable_title">Notifications</string>
+    <string name="preferences_notifications_enable_summary">Show notifications when new messages are received</string>
+    <string name="preferences_notifications_enable_default_value" translatable="false">true</string>
+    <string name="preferences_notifications_sound_key" translatable="false">sms_notification_ringtone</string>
+    <string name="preferences_notifications_sound_title">Sound</string>
+    <string name="preferences_notifications_sound_default_value" translatable="false">content://settings/system/notification_sound</string>
+    <string name="preferences_notifications_sound_silent">Silent</string>
+    <string name="preferences_notifications_sound_unknown">Unknown ringtone</string>
+    <string name="preferences_notifications_sound_unknown_perm">Unknown ringtone (external storage permission denied)</string>
+    <string name="preferences_notifications_vibrate_key" translatable="false">sms_notification_vibrate</string>
+    <string name="preferences_notifications_vibrate_title">Vibrate</string>
+    <string name="preferences_notifications_vibrate_default_value" translatable="false">true</string>
+
+    <!-- Appearance -->
+    <string name="preferences_appearance_category_name">Appearance</string>
+    <string name="preferences_theme_key" translatable="false">theme</string>
+    <string name="preferences_theme_title">Theme</string>
+    <string name="preferences_theme_default_value" translatable="false">0</string>
+    <string name="preferences_message_text_box_maximum_size_key" translatable="false">message_text_box_maximum_size</string>
+    <string name="preferences_message_text_box_maximum_size_title">Message text box maximum size</string>
+    <string name="preferences_message_text_box_maximum_size_default_value" translatable="false">4</string>
+
+    <!-- Network -->
+    <string name="preferences_network_category_name">Network</string>
+    <string name="preferences_network_connect_timeout_key" translatable="false">connect_timeout</string>
+    <string name="preferences_network_connect_timeout_title">Connect timeout</string>
+    <string name="preferences_network_connect_timeout_default_value" translatable="false">15</string>
+    <string name="preferences_network_read_timeout_key" translatable="false">read_timeout</string>
+    <string name="preferences_network_read_timeout_title">Read timeout</string>
+    <string name="preferences_network_read_timeout_default_value" translatable="false">15</string>
+
+    <!-- Database -->
+    <string name="preferences_database_category_name">Database</string>
+    <string name="preferences_database_import_key" translatable="false">database_import</string>
+    <string name="preferences_database_import_title">Import database</string>
+    <string name="preferences_database_import_summary">Import raw SQLite database from a file</string>
+    <string name="preferences_database_import_success">Database imported</string>
+    <string name="preferences_database_import_fail">Failed to import database: %1$s</string>
+    <string name="preferences_database_export_key" translatable="false">database_export</string>
+    <string name="preferences_database_export_title">Export database</string>
+    <string name="preferences_database_export_summary">Export raw SQLite database to a file</string>
+    <string name="preferences_database_export_success">Database exported</string>
+    <string name="preferences_database_export_fail">Failed to export database: %1$s</string>
+    <string name="preferences_database_clean_up_key" translatable="false">database_clean_up</string>
+    <string name="preferences_database_clean_up_title">Clean up database</string>
+    <string name="preferences_database_clean_up_summary">Remove outdated information from database</string>
+    <string name="preferences_database_clean_up_deleted_messages">Metadata associated with deleted messages</string>
+    <string name="preferences_database_clean_up_removed_dids">Messages and metadata associated with removed phone numbers</string>
+    <string name="preferences_database_delete_key" translatable="false">database_delete</string>
+    <string name="preferences_database_delete_title">Delete database</string>
+    <string name="preferences_database_delete_summary">Delete all messages and associated metadata</string>
+    <string name="preferences_database_delete_confirm_title">Delete database?</string>
+    <string name="preferences_database_delete_confirm_message">This action cannot be undone.</string>
+    <string name="preferences_database_fail_create_document">No handler available to select database export location</string>
+    <string name="preferences_database_fail_open_document">No handler available to select database import location</string>
+
+    <!-- About -->
+    <string name="preferences_about_category_name">About</string>
+    <string name="preferences_about_changelog_title">Changelog</string>
+    <string name="preferences_about_license_title">License</string>
+    <string name="preferences_about_license_summary">Apache License 2.0</string>
+    <string name="preferences_about_privacy_title">Privacy</string>
+    <string name="preferences_about_third_party_embedded_title">Third-party notices (embedded code)</string>
+    <string name="preferences_about_third_party_packages_title">Third-party notices (packages)</string>
+
+    <!-- Markdown -->
+    <string name="preferences_markdown_extra">net.kourlas.voipms_sms.MARKDOWN_DOCUMENT_TYPE</string>
+
+    <!-- Uncategorized -->
+    <string name="preferences_perm_denied_external_storage">External storage permission required to access ringtones</string>
+    <string name="preferences_setup_completed_for_version_key" translatable="false">setup_completed_for_version</string>
+    <string name="preferences_setup_completed_for_version_default_value" translatable="false">0</string>
+    <string name="preferences_first_sync_after_sign_in_key" translatable="false">first_sync_after_sign_in</string>
+    <string name="preferences_first_run" translatable="false">first_run</string>
+    <string name="preferences_encrypted_file_name" translatable="false">%s_encrypted</string>
+
+    <!-- ACTIVITIES -->
+
+    <!-- ConversationActivity -->
+    <string name="conversation_action_call">Make a call</string>
+    <string name="conversation_action_copy">Copy text</string>
+    <string name="conversation_action_delete">Delete</string>
+    <string name="conversation_action_did">DID: %1$s</string>
+    <string name="conversation_action_export">Export</string>
+    <string name="conversation_action_info">View details</string>
+    <string name="conversation_action_notifications">Notifications</string>
+    <string name="conversation_action_bubble">Show as bubble</string>
+    <string name="conversation_action_resend">Resend</string>
+    <string name="conversation_action_search">Search</string>
+    <string name="conversation_action_send">Send</string>
+    <string name="conversation_action_share">Share</string>
+    <string name="conversation_char_rem">%1$d / %2$d</string>
+    <string name="conversation_contact_clipboard_description">Contact phone number</string>
+    <string name="conversation_conversation_clipboard_description">Conversation</string>
+    <string name="conversation_copied_contact_toast_message">Copied phone number</string>
+    <string name="conversation_copied_conversation_toast_message">Copied conversation as JSON</string>
+    <string name="conversation_copied_conversation_fail_toast_message">Failed to copy conversation (too large?)</string>
+    <string name="conversation_copied_did_toast_message">Copied phone number</string>
+    <plurals name="conversation_message_deleted">
+        <item quantity="one">%1$d message deleted</item>
+        <item quantity="other">%1$d messages deleted</item>
+    </plurals>
+    <string name="conversation_did_clipboard_description">DID</string>
+    <string name="conversation_extra_focus" translatable="false">net.kourlas.voipms_sms.CONVERSATION_EXTRA_FOCUS</string>
+    <string name="conversation_extra_message_text" translatable="false">net.kourlas.voipms_sms.CONVERSATION_EXTRA_MESSAGE_TEXT</string>
+    <string name="conversation_info_date">Date: %1$s</string>
+    <string name="conversation_info_from">From: %1$s</string>
+    <string name="conversation_info_id">ID: %1$d</string>
+    <string name="conversation_info_title">Message details</string>
+    <string name="conversation_info_to">To: %1$s</string>
+    <string name="conversation_message_clipboard_description">Text message</string>
+    <string name="conversation_message_not_sent">Not sent. Touch to try again.</string>
+    <string name="conversation_message_sending">Sending…</string>
+    <string name="conversation_no_messages">There are no messages in this conversation.</string>
+    <string name="conversation_no_results">No results found for \'%1$s\'</string>
+    <string name="conversation_perm_denied_call">Phone permission required to make calls</string>
+    <string name="conversation_text_hint">Send message…</string>
+
+    <!-- NewConversationActivity -->
+    <string name="new_conversation_action_keyboard">Show keyboard</string>
+    <string name="new_conversation_action_dialpad">Show dialpad</string>
+    <string name="new_conversation_text_hint">To…</string>
+    <string name="new_conversation_manual_entry">Manual entry</string>
+    <string name="new_conversation_no_contacts">You have no contacts with phone numbers.</string>
+    <string name="new_conversation_no_results">No results found for \'%1$s\'</string>
+    <string name="new_conversation_multiple">Multiple</string>
+    <string name="new_conversation_error_refresh">New conversation view refresh failed; please restart the app</string>
+
+    <!-- ConversationsActivity -->
+    <string name="conversations_action_archive">Archive</string>
+    <string name="conversations_action_archived">Archived</string>
+    <string name="conversations_action_chat">Chat</string>
+    <string name="conversations_action_delete">Delete</string>
+    <string name="conversations_action_coffee">Buy me a coffee</string>
+    <string name="conversations_action_help">Help</string>
+    <string name="conversations_action_mark_read">Mark read</string>
+    <string name="conversations_action_mark_unread">Mark unread</string>
+    <string name="conversations_action_search">Search</string>
+    <string name="conversations_action_settings">Settings</string>
+    <string name="conversations_action_unarchive">Unarchive</string>
+    <string name="conversations_all_dids">All</string>
+    <string name="conversations_checked_content_description">Checked</string>
+    <plurals name="conversations_deleted">
+        <item quantity="one">%1$d conversation deleted</item>
+        <item quantity="other">%1$d conversations deleted</item>
+    </plurals>
+    <plurals name="conversations_archived">
+        <item quantity="one">%1$d conversation archived</item>
+        <item quantity="other">%1$d conversations archived</item>
+    </plurals>
+    <plurals name="conversations_unarchived">
+        <item quantity="one">%1$d conversation unarchived</item>
+        <item quantity="other">%1$d conversations unarchived</item>
+    </plurals>
+    <string name="conversations_error_refresh">Conversations view refresh failed; please restart the app</string>
+    <string name="conversations_fail_web_browser">No web browser installed</string>
+    <string name="conversations_message_draft">Draft</string>
+    <string name="conversations_message_not_sent">Not sent.</string>
+    <string name="conversations_message_sending">Sending…</string>
+    <string name="conversations_message_you">You:</string>
+    <string name="conversations_no_account">No account configured</string>
+    <string name="conversations_no_dids">You have no configured phone numbers.</string>
+    <string name="conversations_first_sync">Please wait for the first synchronization to complete…</string>
+    <string name="conversations_no_messages">You have no messages associated with the selected phone number.</string>
+    <string name="conversations_no_results">No results found for \'%1$s\'</string>
+    <string name="conversations_perm_denied_contacts">Contacts permission required to view names and photos</string>
+    <string name="conversations_sync_date_suggestion">Synchronization start date is %1$s</string>
+    <string name="conversations_text_hint">Search…</string>
+    <string name="conversations_no_contact_app">Failed to open contacts</string>
+
+    <!-- ConversationsArchivedActivity -->
+    <string name="conversations_archived_name">Archived</string>
+    <string name="conversations_archived_no_messages">You have no archived messages associated with the selected phone number.</string>
+
+    <!-- ConversationActivity -->
+    <string name="conversation_did" translatable="false">did</string>
+    <string name="conversation_contact" translatable="false">contact</string>
+
+    <!-- PreferencesActivity -->
+    <string name="preferences_name">Settings</string>
+
+    <!-- SignInActivity -->
+    <string name="sign_in_name">Sign in to the VoIP.ms API</string>
+    <string name="sign_in_info">&lt;strong&gt;Please read these instructions carefully.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;A VoIP.ms account is required to use this app. Sign up for an account on the &lt;a href="https://www.voip.ms"&gt;VoIP.ms website&lt;/a&gt;. You must use the email address you use to log into the VoIP.ms website to log into this app.&lt;br&gt;&lt;br&gt;VoIP.ms API access is also required to use this app. Use the &lt;a href="https://www.voip.ms/m/api.php"&gt;VoIP.ms API configuration menu&lt;/a&gt; to enable API access, set an API password, and add "0.0.0.0" to the list of IP addresses approved for API access. You must use the API password to log into this app, not your normal account password.</string>
+    <string name="sign_in_email_hint">VoIP.ms account email address</string>
+    <string name="sign_in_password_hint">VoIP.ms API password</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="skip_button">Skip</string>
+
+    <!-- DidsPreferencesActivity -->
+    <string name="preferences_did_name">Phone numbers</string>
+
+    <!-- WORKERS -->
+
+    <!-- PushNotificationsRegistrationWorker -->
+    <string name="push_notifications_fail_register">Register failed: VoIP.ms callback registration failed</string>
+    <string name="push_notifications_fail_unknown">Register failed: unknown error</string>
+
+    <!-- SendMessageWorker -->
+    <string name="send_message_work_id" translatable="false">net.kourlas.voipms_sms.SEND_MESSAGE_WORK_ID_%1$d</string>
+    <string name="send_message_database_id" translatable="false">net.kourlas.voipms_sms.SEND_MESSAGE_DATABASE_ID</string>
+    <string name="send_message_inline_reply" translatable="false">net.kourlas.voipms_sms.SEND_MESSAGE_INLINE_REPLY</string>
+    <string name="send_message_inline_reply_contact" translatable="false">net.kourlas.voipms_sms.SEND_MESSAGE_INLINE_REPLY_CONTACT</string>
+    <string name="send_message_inline_reply_did" translatable="false">net.kourlas.voipms_sms.SEND_MESSAGE_INLINE_REPLY_DID</string>
+    <string name="send_message_error_api_error">Not sent: API error \'%1$s\'</string>
+    <string name="send_message_error_api_error_invalid_credentials">Not sent: invalid credentials</string>
+    <string name="send_message_error_api_error_invalid_dst">Not sent: invalid phone number</string>
+    <string name="send_message_error_api_error_invalid_sms">Not sent: invalid SMS</string>
+    <string name="send_message_error_api_error_limit_reached">Not sent: contact VoIP.ms for help ("limit_reached")</string>
+    <string name="send_message_error_api_error_message_empty">Not sent: SMS empty</string>
+    <string name="send_message_error_api_error_missing_sms">Not sent: SMS missing</string>
+    <string name="send_message_error_api_error_sms_failed">Not sent: contact VoIP.ms for help ("sms_failed")</string>
+    <string name="send_message_error_api_error_sms_toolong">Not sent: SMS too long</string>
+    <string name="send_message_error_api_parse">Not sent: corrupt response</string>
+    <string name="send_message_error_api_request">Not sent: VoIP.ms unavailable</string>
+    <string name="send_message_error_network">Not sent: network unavailable</string>
+    <string name="send_message_error_unknown">Not sent: unknown error</string>
+
+    <!-- RetrieveDidsWorker -->
+    <string name="retrieve_dids_work_id" translatable="false">net.kourlas.voipms_sms.RETRIEVE_DIDS_WORK_ID</string>
+    <string name="retrieve_dids_auto_add" translatable="false">net.kourlas.voipms_sms.RETRIEVE_DIDS_AUTO_ADD</string>
+
+    <!-- SyncWorker -->
+    <string name="sync_work_id" translatable="false">net.kourlas.voipms_sms.SYNC_WORK_ID</string>
+    <string name="sync_partial_work_id" translatable="false">net.kourlas.voipms_sms.SYNC_PARTIAL_WORK_ID</string>
+    <string name="sync_force_recent" translatable="false">net.kourlas.voipms_sms.SYNC_FORCE_RECENT</string>
+    <string name="sync_error_network">Sync failed: network unavailable</string>
+    <string name="sync_error_api_request">Sync failed: VoIP.ms unavailable</string>
+    <string name="sync_error_api_parse">Sync failed: corrupt response</string>
+    <string name="sync_error_api_error">Sync failed: API error \'%1$s\'</string>
+    <string name="sync_error_api_error_invalid_credentials">Sync failed: invalid credentials</string>
+    <string name="sync_error_database">Sync failed: unknown DB error</string>
+    <string name="sync_error_cancelled">Sync failed: cancelled</string>
+    <string name="sync_error_unknown">Sync failed: unknown error</string>
+
+    <!-- VerifyCredentialsWorker -->
+    <string name="verify_credentials_work_id" translatable="false">net.kourlas.voipms_sms.VERIFY_CREDENTIALS_WORK_ID</string>
+    <string name="verify_credentials_email" translatable="false">net.kourlas.voipms_sms.VERIFY_CREDENTIALS_EMAIL</string>
+    <string name="verify_credentials_password" translatable="false">net.kourlas.voipms_sms.VERIFY_CREDENTIALS_PASSWORD</string>
+    <string name="verify_credentials_error_api_request">Sign-in failed: VoIP.ms unavailable</string>
+    <string name="verify_credentials_error_api_parse">Sign-in failed: corrupt response</string>
+    <string name="verify_credentials_error_api_error">Sign-in failed: API error \'%1$s\'</string>
+    <string name="verify_credentials_error_api_error_missing_credentials">Sign-in failed: missing credentials</string>
+    <string name="verify_credentials_error_api_error_invalid_credentials">Sign-in failed: invalid credentials</string>
+    <string name="verify_credentials_error_unknown">Sign-in failed: unknown error</string>
+
+    <!-- BROADCAST RECEIVERS -->
+
+    <!-- MarkReadReceiver -->
+    <string name="mark_read_receiver_action" translatable="false">net.kourlas.voipms_sms.MARK_READ_ACTION</string>
+    <string name="mark_read_receiver_did" translatable="false">net.kourlas.voipms_sms.MARK_READ_DID</string>
+    <string name="mark_read_receiver_contact" translatable="false">net.kourlas.voipms_sms.MARK_READ_CONTACT</string>
+
+    <!-- SendMessageReceiver -->
+    <string name="send_message_receiver_action" translatable="false">net.kourlas.voipms_sms.SEND_MESSAGE_RECEIVER_ACTION</string>
+    <string name="send_message_receiver_contact" translatable="false">net.kourlas.voipms_sms.SEND_MESSAGE_RECEIVER_CONTACT</string>
+    <string name="send_message_receiver_did" translatable="false">net.kourlas.voipms_sms.SEND_MESSAGE_RECEIVER_DID</string>
+
+    <!-- SyncIntervalReceiver -->
+    <string name="sync_interval_action" translatable="false">net.kourlas.voipms_sms.SYNC_INTERVAL_ACTION</string>
+
+    <!-- Sent message receiver -->
+    <string name="sent_message_action" translatable="false">net.kourlas.voipms_sms.SENT_MESSAGE_ACTION_%1$s_%2$s</string>
+    <string name="sent_message_error" translatable="false">net.kourlas.voipms_sms.SENT_MESSAGE_ERROR</string>
+
+    <!-- Sync complete receiver -->
+    <string name="sync_complete_action" translatable="false">net.kourlas.voipms_sms.SYNC_COMPLETE_ACTION</string>
+    <string name="sync_complete_error" translatable="false">net.kourlas.voipms_sms.SYNC_COMPLETE_ERROR</string>
+    <string name="sync_complete_full" translatable="false">net.kourlas.voipms_sms.SYNC_COMPLETE_FULL</string>
+
+    <!-- Push notifications registration complete receiver -->
+    <string name="push_notifications_reg_complete_action" translatable="false">net.kourlas.voipms_sms.PUSH_NOTIFICATIONS_REG_COMPLETE_ACTION</string>
+    <string name="push_notifications_reg_complete_failed_dids" translatable="false">net.kourlas.voipms_sms.PUSH_NOTIFICATIONS_REG_COMPLETE_FAILED_DIDS</string>
+
+    <!-- DID retrieval complete receiver -->
+    <string name="retrieve_dids_complete_action" translatable="false">net.kourlas.voipms_sms.RETRIEVE_DIDS_COMPLETE_ACTION</string>
+    <string name="retrieve_dids_complete_dids" translatable="false">net.kourlas.voipms_sms.RETRIEVE_DIDS_COMPLETE_DIDS</string>
+    <string name="retrieve_dids_complete_error" translatable="false">net.kourlas.voipms_sms.RETRIEVE_DIDS_COMPLETE_ERROR</string>
+
+    <!-- Verify credentials complete receiver -->
+    <string name="verify_credentials_complete_action" translatable="false">net.kourlas.voipms_sms.VERIFY_CREDENTIALS_COMPLETE_ACTION</string>
+    <string name="verify_credentials_complete_valid" translatable="false">net.kourlas.voipms_sms.VERIFY_CREDENTIALS_COMPLETE_VALID</string>
+    <string name="verify_credentials_complete_error" translatable="false">net.kourlas.voipms_sms.VERIFY_CREDENTIALS_COMPLETE_ERROR</string>
+
+    <!-- Buy me a coffee complete receiver -->
+    <string name="coffee_complete_action" translatable="false">net.kourlas.voipms_sms.COFFEE_COMPLETE_ACTION</string>
+    <string name="coffee_complete_message" translatable="false">Thanks for buying me a coffee!</string>
+    <string name="coffee_fail_google_play" translatable="false">Tip failed: try again later</string>
+    <string name="coffee_fail_unknown" translatable="false">Tip failed: unknown error</string>
+
+    <!-- SINGLETONS -->
+
+    <!-- Notifications -->
+    <string name="notifications_current_user">You</string>
+    <string name="notifications_group_key" translatable="false">net.kourlas.voipms_sms.NOTIFICATIONS_GROUP</string>
+    <string name="notifications_reply_key" translatable="false">net.kourlas.voipms_sms.NOTIFICATIONS_REPLY</string>
+    <string name="notifications_button_cancel">Cancel</string>
+    <string name="notifications_button_reply">Reply</string>
+    <string name="notifications_button_mark_read">Mark as read</string>
+    <string name="notifications_channel_group_other" translatable="false">channel_group_other</string>
+    <string name="notifications_channel_group_other_title">Other</string>
+    <string name="notifications_channel_group_did" translatable="false">channel_group_did_%1$s</string>
+    <string name="notifications_channel_sync" translatable="false">channel_sync</string>
+    <string name="notifications_channel_sync_title">Synchronization</string>
+    <string name="notifications_channel_default" translatable="false">channel_default</string>
+    <string name="notifications_channel_default_title">Default</string>
+    <string name="notifications_channel_contact_prefix" translatable="false">channel_did_contact_</string>
+    <string name="notifications_channel_contact" translatable="false">channel_did_contact_%1$s_%2$s</string>
+    <string name="notifications_sync_database_message">Synchronizing database with VoIP.ms</string>
+    <string name="notifications_sync_send_message_message">Sending message using VoIP.ms</string>
+    <string name="notifications_sync_verify_credentials_message">Verifying credentials with VoIP.ms</string>
+    <string name="notifications_sync_retrieve_dids_message">Retrieving DIDs from VoIP.ms</string>
+    <string name="notifications_sync_register_push_message">Registering for push notifications with VoIP.ms</string>
+    <string name="notifications_security_error">Failed to launch notification due to lack of external storage permission</string>
+
+    <!-- UTILS -->
+    <string name="utils_date_just_now">Now</string>
+    <string name="utils_date_minutes_ago">min</string>
+
+    <!-- URLS -->
+    <string name="github_url" translatable="false">https://github.com/michaelkourlas/voipms-sms-client</string>
+    <string name="coffee_url" translatable="false">https://paypal.me/kourlas</string>
+
+    <!-- SHORTCUTS -->
+    <string name="new_conversation_shortcut_short">Compose</string>
+    <string name="new_conversation_shortcut_long">New conversation</string>
+    <string name="pinned_shortcut_disable_error">This conversation no longer exists.</string>
+
+    <!-- LABELS -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="undo">Undo</string>
+    <string name="change">Change</string>
+    <string name="settings">Settings</string>
+
+    <!-- MISCELLANEOUS -->
+    <string name="app_name">VoIP.ms SMS</string>
+    <string name="copyright">Copyright © 2015–2023 Michael Kourlas</string>
+    <string name="version">Version 0.6.23</string>
+    <string name="toast_error">Error: %1$s</string>
+</resources>

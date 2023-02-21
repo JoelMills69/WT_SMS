@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ VoIP.ms SMS
+  ~ Copyright (C) 2015-2020 Michael Kourlas
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ToolbarTheme"
+            app:collapseIcon="@drawable/ic_close_toolbar_24dp"
+            app:subtitleTextColor="@android:color/white"
+            app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/empty_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:gravity="center" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@id/empty_text"
+                android:layout_alignBottom="@id/empty_text"
+                android:layout_marginBottom="@dimen/double_margin">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:paddingBottom="@dimen/quadruple_margin" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/quadruple_margin"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/double_margin"
+            android:background="@drawable/conversation_fade" />
+
+        <LinearLayout
+            android:id="@+id/message_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/margin"
+            android:background="@color/message_section"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/message_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:hint="@string/conversation_text_hint"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine|textCapSentences|textAutoCorrect|textShortMessage"
+                android:isScrollContainer="true"
+                android:paddingStart="@dimen/margin"
+                android:paddingTop="@dimen/half_margin"
+                android:paddingEnd="@dimen/half_margin"
+                android:paddingBottom="@dimen/half_margin"
+                android:scrollbars="vertical"
+                android:textAppearance="@style/Body1"
+                android:textColorHint="@color/message_hint"
+                tools:targetApi="o" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/half_margin"
+                android:layout_marginTop="@dimen/half_margin"
+                android:layout_marginEnd="@dimen/half_margin"
+                android:layout_marginBottom="@dimen/half_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/chars_remaining_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:textAppearance="@style/Caption"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/send_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/conversation_button_send"
+                    android:contentDescription="@string/conversation_action_send"
+                    android:padding="@dimen/half_margin"
+                    app:srcCompat="@drawable/ic_send_toolbar_24dp"
+                    app:tint="@color/send_icon" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

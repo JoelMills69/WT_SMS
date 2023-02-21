@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ VoIP.ms SMS
+  ~ Copyright (C) 2015-2021 Michael Kourlas
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!--suppress XmlUnusedNamespaceDeclaration -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="net.kourlas.voipms_sms">
+
+    <!-- PERMISSIONS -->
+
+    <!-- Display contact information -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+
+    <!-- Support for "call contact" button -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- Access to VoIP.ms API -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Sync scheduling -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!-- Vibration when notification received -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Ringtones and database -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".CustomApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- METADATA -->
+
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+
+        <!-- ACTIVITIES -->
+
+        <activity
+            android:name=".conversations.ConversationsActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity
+            android:name=".conversations.ConversationsArchivedActivity"
+            android:exported="false"
+            android:parentActivityName=".conversations.ConversationsActivity" />
+        <activity
+            android:name=".conversation.ConversationActivity"
+            android:exported="true"
+            android:parentActivityName=".conversations.ConversationsActivity">
+            <intent-filter
+                android:autoVerify="true"
+                tools:targetApi="m">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="conversation"
+                    android:scheme="voipmssms" />
+            </intent-filter>
+            <intent-filter
+                android:autoVerify="true"
+                tools:targetApi="m">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="message"
+                    android:scheme="voipmssms" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.chooser.chooser_target_service"
+                android:value="androidx.sharetarget.ChooserTargetServiceCompat" />
+        </activity>
+        <activity
+            android:name=".conversation.ConversationBubbleActivity"
+            android:allowEmbedded="true"
+            android:resizeableActivity="true"
+            android:exported="false"
+            tools:targetApi="n" />
+        <activity
+            android:name=".newConversation.NewConversationActivity"
+            android:noHistory="true"
+            android:exported="false"
+            android:parentActivityName=".conversations.ConversationsActivity" />
+        <activity
+            android:name=".preferences.activities.PreferencesActivity"
+            android:label="@string/preferences_name"
+            android:launchMode="singleTop"
+            android:exported="false"
+            android:parentActivityName=".conversations.ConversationsActivity" />
+        <activity
+            android:name=".preferences.activities.DidPreferencesActivity"
+            android:exported="false"
+            android:parentActivityName=".preferences.activities.DidsPreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.DidPreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".preferences.activities.DidsPreferencesActivity"
+            android:exported="false"
+            android:label="@string/preferences_did_name"
+            android:launchMode="singleTop"
+            android:parentActivityName=".preferences.activities.AccountPreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.DidsPreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".preferences.activities.AboutPreferencesActivity"
+            android:exported="false"
+            android:label="@string/preferences_about_category_name"
+            android:launchMode="singleTop"
+            android:parentActivityName=".preferences.activities.PreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.AboutPreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".preferences.activities.AccountPreferencesActivity"
+            android:exported="false"
+            android:label="@string/preferences_account_category_name"
+            android:parentActivityName=".preferences.activities.PreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.AccountPreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".preferences.activities.AppearancePreferencesActivity"
+            android:exported="false"
+            android:label="@string/preferences_appearance_category_name"
+            android:parentActivityName=".preferences.activities.PreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.AppearancePreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".preferences.activities.DatabasePreferencesActivity"
+            android:exported="false"
+            android:label="@string/preferences_database_category_name"
+            android:parentActivityName=".preferences.activities.PreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.DatabasePreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".preferences.activities.MarkdownPreferencesActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".preferences.activities.NetworkPreferencesActivity"
+            android:exported="false"
+            android:label="@string/preferences_network_category_name"
+            android:parentActivityName=".preferences.activities.PreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.NetworkPreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".preferences.activities.NotificationsPreferencesActivity"
+            android:exported="false"
+            android:label="@string/preferences_notifications_category_name"
+            android:parentActivityName=".preferences.activities.PreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.NotificationsPreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".preferences.activities.SynchronizationPreferencesActivity"
+            android:exported="false"
+            android:label="@string/preferences_sync_category_name"
+            android:parentActivityName=".preferences.activities.PreferencesActivity">
+            <intent-filter>
+                <action android:name="net.kourlas.voipms_sms.preferences.activities.SynchronizationPreferencesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".signIn.SignInActivity"
+            android:exported="false"
+            android:label="@string/sign_in_name"
+            android:parentActivityName=".preferences.activities.PreferencesActivity">
+        </activity>
+
+        <!-- BROADCAST RECEIVERS -->
+
+        <receiver
+            android:name=".sms.receivers.MarkReadReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".sms.receivers.SendMessageReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".sms.receivers.SyncBootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- SERVICES -->
+
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:ignore="Instantiatable"
+            tools:node="merge" />
+    </application>
+</manifest>

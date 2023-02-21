@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ VoIP.ms SMS
+  ~ Copyright (C) 2015-2019 Michael Kourlas
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <color name="action_mode_background">@color/primary</color>
+    <color name="checked_conversation">@color/primary</color>
+    <color name="did_progress_bar">@color/primary</color>
+    <color name="did_secondary_toolbar_background">#424242</color>
+    <color name="did_secondary_toolbar_text">#FFFFFF</color>
+    <color name="fastscroll_preview_color">@color/primary_variant</color>
+    <color name="fastscroll_preview_text_color">#FFFFFF</color>
+    <color name="fastscroll_thumb_color">#B8B8B8</color>
+    <color name="fastscroll_thumb_pressed_color">@color/primary_variant</color>
+    <color name="fastscroll_track_color">@android:color/transparent</color>
+    <color name="highlight">#F3F315</color>
+    <color name="launcher_icon">#B71C1C</color>
+    <color name="message_hint">#AF000000</color>
+    <color name="message_incoming">#616161</color>
+    <color name="message_incoming_checked">#373737</color>
+    <color name="message_outgoing">@color/primary</color>
+    <color name="message_outgoing_checked">@color/primary_variant</color>
+    <color name="message_section">#FFFFFF</color>
+    <color name="nav_view_header_gradient_end">#F05545</color>
+    <color name="nav_view_header_gradient_start">@color/primary_variant</color>
+    <color name="new_conversation_letter">@color/primary</color>
+    <color name="primary">#B71C1C</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="primary_variant">#7F0000</color>
+    <color name="search_cursor">#FFFFFF</color>
+    <color name="search_hint">#AFFFFFFF</color>
+    <color name="send_icon">@color/primary</color>
+    <color name="send_icon_background">@color/message_section</color>
+    <color name="settings_icon">@color/primary</color>
+    <color name="sign_in_progress_bar">@color/primary</color>
+    <color name="swipe_refresh_icon">@color/primary</color>
+    <color name="toolbar_icon">@color/primary_text</color>
+    <color name="typed_in_contact">@color/primary</color>
+    <color name="delete_swipe">@color/primary_variant</color>
+    <color name="archive_swipe">#188038</color>
+
+    <!-- Material design colors -->
+    <color name="colorAccent">@color/primary</color>
+    <color name="colorOnPrimary">@color/primary_text</color>
+    <color name="colorOnSecondary">@color/primary_text</color>
+    <color name="colorPrimary">@color/primary</color>
+    <color name="colorPrimaryDark">@color/primary_variant</color>
+    <color name="colorPrimaryVariant">@color/primary_variant</color>
+    <color name="colorSecondary">@color/primary</color>
+    <color name="colorSecondaryVariant">@color/primary_variant</color>
+</resources>
